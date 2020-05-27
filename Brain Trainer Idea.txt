@@ -1,0 +1,9 @@
+Components:
+A Starter Button - before timer starts
+A Timer
+A Sum Displayer
+A Score Displayer
+Four Answer Choices
+A Correctness Indicator
+A Score Displayer - when timer runs out
+A play agai
