@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -16,9 +17,12 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -32,6 +36,23 @@ public class MainActivity extends AppCompatActivity {
     LocationManager locationManager;
     LocationListener locationListener;
     TextView LatLong, accuracy, altitude, address;
+
+    double lat,lng;
+
+    public void toMap(View view){
+
+       // Toast.makeText(this, "Button Pressed", Toast.LENGTH_SHORT).show();
+
+        Log.i("LatLng", (String) LatLong.getText());
+
+       Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+        //intent.putExtra("lat", String.valueOf(lat));
+        //intent.putExtra("lng", String.valueOf(lng));
+        startActivity(intent);
+
+
+
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -65,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         accuracy = (TextView) findViewById(R.id.accuracy);
         altitude = (TextView) findViewById(R.id.altitude);
         address = (TextView) findViewById(R.id.address);
+
 
 
 
